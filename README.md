@@ -21,13 +21,14 @@ Make sure you have permission to access this repository
 
 ### Init API Service
 
-- `CustomerinvokeService` is initiated should be from `App.ts`
+- `RegistrationService` is initiated should be from `App.ts`
 
 ```javascript
-import { CustomerinvokeService } from "react-native-register-component";
+import { RegistrationService } from "react-native-register-component";
 
-CustomerInvokeService.instance().initClients({
-  contactBaseUrl: "url"
+RegistrationService.instance().initClients({
+  customerValidationClient: "url",
+  userRegistrationClient: "url"
 });
 ```
 
@@ -39,9 +40,7 @@ CustomerInvokeService.instance().initClients({
 
 ### CustomerInvokeComponent
 
-Open a web-view to cutomer can add help details
-
-- Props, styles and component can be found [here](./src/components/customer-invoke/types.ts)
+- Props, styles and component can be found [here](./src/components/otp-verification/types.ts)
 
 - Example
 
