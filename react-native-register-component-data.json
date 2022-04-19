@@ -1,0 +1,60 @@
+{
+  "id": "react-native-register-component",
+  "name": "Register Component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/101digital/react-native-register-component.git"
+  },
+  "config": {
+    "env": {
+      "development": {
+        "customerValidationBaseUrl": "https://api-ud-ow-dev.101digital.io/customer-validation-service/1.0.0",
+        "userRegistrationBaseUrl": "https://api-ud-ow-dev.101digital.io/identity-service/1.1.10"
+      },
+      "staging": {
+        "customerValidationBaseUrl": "https://api-ud-ow-dev.101digital.io/customer-validation-service/1.0.0",
+        "userRegistrationBaseUrl": "https://api-ud-ow-dev.101digital.io/identity-service/1.1.10"
+      },
+      "production": {
+        "customerValidationBaseUrl": "https://api-ud-ow-dev.101digital.io/customer-validation-service/1.0.0",
+        "userRegistrationBaseUrl": "https://api-ud-ow-dev.101digital.io/identity-service/1.1.10"
+      }
+    }
+  },
+  "dependencies": [],
+  "templates": [
+    {
+      "id": "customer-invoke-template",
+      "templateName": "Register Component",
+      "componentName": "RegisterComponent",
+      "imports": [
+        "import { CustomerInvokeComponent,defaultCustomerInvokeSteps,CustomerInvokeContext } from 'react-native-register-component';",
+        "import { AuthContext } from 'react-native-auth-component';"
+      ],
+      "headers": ["  const { profile } = useContext(AuthContext);"],
+      "headers": [
+        "  const { profile } = useContext(AuthContext);",
+        "  const {getUserProfile} = useContext(CustomerInvokeContext); ",
+
+        "",
+        "  useEffect(() => {",
+        "    getUserProfile()",
+        "  }, []);"
+      ],
+      "renders": [
+        "      <CustomerInvokeComponent",
+        "        initData={{",
+        "          firstName: `${profile?.firstName ?? ''}`,",
+        "          lastName: `${profile?.lastName ?? ''}`,",
+        "        }}",
+        "        onBack={() => navigation.goBack()}",
+        "        onCompleted={(applicationDetails) => {",
+        "          console.log('applicationDetails', applicationDetails);",
+        "        }}",
+        "        initStep={defaultCustomerInvokeSteps[0]}",
+        "      />"
+      ]
+    }
+  ],
+  "texts": {}
+}
