@@ -1,5 +1,6 @@
 export * from "./src/components/password-mask";
 export * from "./src/components/carousel";
+export * from "./src/assets/icons";
 
 export { RegistrationService } from "./src/service/registration-service";
 export { RegistrationContext } from "./src/context/registration-context";
